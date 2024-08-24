@@ -39,7 +39,7 @@ table {
 }
 
 body{
-    background-color: #272727;
+    background-color: #000;
 }
 
 .bg-white {
@@ -148,4 +148,27 @@ body .titulo h3{
 .tabela-dados div label {
     display: inline-block;
     min-width: 180px;
+}
+
+@media screen and (max-width: 576px){
+
+    .container-topo .logo img {
+        max-width: 50px;
+    }
+
+    body .titulo {
+        padding: 20px 0;
+    }
+
+    body .titulo h3 {
+        font-size: 13px;
+    }
+
+    .container-consulta {
+        padding-bottom: 20px;
+    }
+
+    .tabela-dados {
+        padding: 10px;
+    }
 }
