@@ -46,6 +46,11 @@ body{
     background: #fff;
 }
 
+.bg-gray {
+    background-color: #F3F4F6;
+}
+
+
 /* header */
 
 header{
@@ -143,6 +148,7 @@ body .titulo h3{
     border: 1px solid #000;
     border-width: 0 0 1px 0;
     font-size: 14px;
+    border-radius: 0;
 }
 
 .tabela-dados div label {
