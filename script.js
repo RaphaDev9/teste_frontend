@@ -40,6 +40,9 @@ function consultaCNPJ(cnpj){
         },
         error: function(xhr, status, error) {
             $(".tabela-dados").text("Não foi possível obter os dados.");
+            setTimeout(function() {
+                location.reload();
+            }, 2000);
         }
     });
 }
@@ -56,7 +59,4 @@ function verificarDados(dados){
 
 $(document).ready(function(){
     mascaraInput();
-
-    // clique no botão
-    $("#btnConsulta").click(getCNPJ);
 });
