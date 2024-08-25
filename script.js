@@ -47,13 +47,15 @@ function consultaCNPJ(cnpj){
     });
 }
 
-// opção de colagem do texto receente copiado
+// verificar se os dados estão preenchidos no cadastro
 
-document.getElementById('cnpj').addEventListener('paste', function(event) {
-    // Obtém o texto colado da área de transferência
-    const pastedText = event.clipboardData.getData('text');
-    console.log('Texto colado:', pastedText);
-});
+function verificarDados(dados){
+ if(dados == ""){
+    return "Dados não cadastrados"
+ } else{
+    return dados
+ }
+}
 
 $(document).ready(function(){
     mascaraInput();
