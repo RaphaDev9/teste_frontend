@@ -47,6 +47,19 @@ function consultaCNPJ(cnpj){
     });
 }
 
+// opção de colagem do texto receente copiado
+
+document.getElementById('cnpj').addEventListener('paste', function(event) {
+    // Obtém o texto colado da área de transferência
+    const pastedText = event.clipboardData.getData('text');
+    console.log('Texto colado:', pastedText);
+});
+
+// Adiciona um ouvinte de eventos para detectar quando o valor do campo é alterado
+document.getElementById('cnpj').addEventListener('input', function() {
+    console.log('Texto atualizado:', this.value);
+});
+
 // verificar se os dados estão preenchidos no cadastro
 
 function verificarDados(dados){
