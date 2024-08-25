@@ -55,21 +55,6 @@ document.getElementById('cnpj').addEventListener('paste', function(event) {
     console.log('Texto colado:', pastedText);
 });
 
-// Adiciona um ouvinte de eventos para detectar quando o valor do campo é alterado
-document.getElementById('cnpj').addEventListener('input', function() {
-    console.log('Texto atualizado:', this.value);
-});
-
-// verificar se os dados estão preenchidos no cadastro
-
-function verificarDados(dados){
- if(dados == ""){
-    return "Dados não cadastrados"
- } else{
-    return dados
- }
-}
-
 $(document).ready(function(){
     mascaraInput();
 });
