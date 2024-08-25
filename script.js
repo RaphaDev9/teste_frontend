@@ -32,8 +32,8 @@ function consultaCNPJ(cnpj){
             $("input.tbl[name='social']").val(verificarDados(JSON.stringify(dados.razao_social).replaceAll('"','')));
             $("input.tbl[name='abertura']").val(verificarDados(JSON.stringify(dados.data_inicio_atividade).replaceAll('"','')));
             $("input.tbl[name='situacao']").val(verificarDados(JSON.stringify(dados.descricao_situacao_cadastral).replaceAll('"','')));
-            $("input.tbl[name='atividade']").val(verificarDados(JSON.stringify(dados.cnae_fiscal_descricao).replaceAll('"','')));
-            $("input.tbl[name='endereco']").val(verificarDados(endereco));
+            $("textarea.tbl[name='atividade']").val(verificarDados(JSON.stringify(dados.cnae_fiscal_descricao).replaceAll('"','')));
+            $("textarea.tbl[name='endereco']").val(verificarDados(endereco));
             $("input.tbl[name='telefone']").val(verificarDados(JSON.stringify(dados.ddd_telefone_1).replaceAll('"','')));
             $("input.tbl[name='email']").val(verificarDados(JSON.stringify(dados.email).replaceAll('"','')));
 
