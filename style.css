@@ -157,7 +157,8 @@ body .titulo h3{
     border-width: 0 0 1px 0;
     font-size: 14px;
     border-radius: 0;
-    width: 100% !important; 
+    width: 100% !important;
+    height: 100% !important; 
     overflow: hidden; 
     white-space: pre-wrap;
     word-wrap: break-word;
