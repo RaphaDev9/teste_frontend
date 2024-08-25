@@ -191,7 +191,7 @@ body .titulo h3{
         padding: 10px;
     }
 
-    .tabela-dados textarea.tbl[name='endereco'] {
+    .tabela-dados textarea.tbl {
         min-height: 40px;
     }
 }
