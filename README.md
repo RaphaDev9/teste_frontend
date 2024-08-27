@@ -1,13 +1,15 @@
-Documentação do Projeto: Consulta CNPJ
-Visão Geral
+# Documentação do Projeto: Consulta CNPJ
+## Visão Geral
 Este projeto é uma aplicação web que permite consultar e exibir dados de CNPJ de empresas no Brasil. Utiliza a API BrasilAPI para obter informações e exibe essas informações em um formulário. Além disso, permite a edição dos dados exibidos, embora a funcionalidade de atualização via API não esteja implementada devido às limitações da BrasilAPI.
 
-Estrutura do Projeto
-Arquivos Principais
-index.html - Estrutura HTML da aplicação.
-style.css - Estilos CSS para a aparência da aplicação.
-script.js - Código JavaScript que controla a lógica da aplicação.
-Dependências
+## Estrutura do Projeto
+
+### Arquivos Principais
+- index.html - Estrutura HTML da aplicação.
+- style.css - Estilos CSS para a aparência da aplicação.
+- script.js - Código JavaScript que controla a lógica da aplicação.
+  
+### Dependências
 jQuery: Biblioteca JavaScript para manipulação do DOM e requisições AJAX.
 jQuery Inputmask: Plugin para aplicar máscaras em campos de entrada.
 Instruções de Uso
