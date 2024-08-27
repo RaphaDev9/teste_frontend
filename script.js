@@ -25,7 +25,6 @@ function consultaCNPJ(cnpj){
         success: function(dados) {
 
             // juntar dados do endereço
-
             let endereco = JSON.stringify(dados.descricao_tipo_de_logradouro + " " + dados.logradouro + ", " + dados.numero + " - " + dados.bairro + " - " + dados.municipio).replaceAll('"','');
 
             $("input.tbl[name='nome']").val(verificarDados(JSON.stringify(dados.nome_fantasia).replaceAll('"','')));
@@ -36,6 +35,15 @@ function consultaCNPJ(cnpj){
             $("textarea.tbl[name='endereco']").val(verificarDados(endereco));
             $("input.tbl[name='telefone']").val(verificarDados(JSON.stringify(dados.ddd_telefone_1).replaceAll('"','')));
             $("input.tbl[name='email']").val(verificarDados(JSON.stringify(dados.email).replaceAll('"','')));
+
+            // consultar se existe sócio
+            let socios = dados.qsa;
+            console.log("Socios: ", socios);
+            if(socios.length > 0){
+                gerarCard(socios);
+            }
+
+            $(".tabela-dados button#editar").show(); // exibir botão de edição
 
         },
         error: function(xhr, status, error) {
@@ -57,6 +65,30 @@ function verificarDados(dados){
  }
 }
 
+function gerarCard(socios){
+    socios.forEach(socio => {
+        $(".cards").append(`
+        <div class="socio">
+            <label for="nome-socio">Nome: </label>
+            <p class="nome-socio">${socio.nome_socio}</p>
+            <label for="cpf-cnpj-socio">CPF/CNPJ: </label>
+            <p class="cpf-cnpj-socio">${socio.cnpj_cpf_do_socio}</p>
+            <label for="qualificacao">Qualificação: </label>
+            <p class="qualificacao">${socio.qualificacao_socio}</p>
+            <label for="data-entrada">Data de Entrada: </label>
+        <p class="data-entrada">${socio.data_entrada_sociedade}</p>
+        </div>`);
+        $(".tabela-socios").show();
+    });
+}
+
+function editForm(){
+    alert("CLICK");
+    $(".tabela-dados input, .tabela-dados textarea").removeAttr("readonly");
+}
+
 $(document).ready(function(){
     mascaraInput();
 });
+
+// fazer script para mudar os dados da api
