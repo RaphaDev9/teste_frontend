@@ -49,6 +49,8 @@ body{
 
 .bg-gray {
     background-color: #F3F4F6;
+    margin-bottom: 10px;
+    padding-bottom: 30px;
 }
 
 
@@ -91,6 +93,15 @@ body .titulo h3{
     text-align: center;
 }
 
+.erro {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.erro p {
+    color: #d60000;
+}
+
 /* consulta */
 
 .container-consulta {
@@ -98,8 +109,6 @@ body .titulo h3{
     justify-content: center;
     gap: 10px;
     background-color: #F3F4F6;
-    padding-bottom: 30px;
-    margin-bottom: 10px;
 }
 
 .container-consulta input#cnpj {
@@ -133,7 +142,7 @@ body .titulo h3{
     background-color: #fff;
     max-width: 1300px;
     margin: auto;
-    padding: 15px 10px;
+    padding: 20px 10px;
     flex-direction: column;
     align-items: center;
 }
@@ -192,6 +201,27 @@ body .titulo h3{
     display: inline-block;
     min-width: 180px;
     font-weight: bold;
+}
+
+.tabela-dados input.tbl.edit, 
+.tabela-dados textarea.tbl.edit {
+    background-color: #E8F0FE;
+}
+
+.tabela-dados button#edit-form {
+    margin: 20px 0;
+    padding: 5px 10px;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    font-size: 15px;
+    transition: 1s;
+}
+
+.tabela-dados button#edit-form:hover {
+    background-color: #fff;
+    color: #000;
 }
 
 /* tabela socios */

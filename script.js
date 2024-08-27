@@ -38,7 +38,6 @@ function consultaCNPJ(cnpj){
 
             // consultar se existe sócio
             let socios = dados.qsa;
-            console.log("Socios: ", socios);
             if(socios.length > 0){
                 gerarCard(socios);
             }
@@ -47,10 +46,10 @@ function consultaCNPJ(cnpj){
 
         },
         error: function(xhr, status, error) {
-            $(".tabela-dados").text("Não foi possível obter os dados.");
-            setTimeout(function() {
-                location.reload();
-            }, 2000);
+            $(".erro").show();
+            setTimeout(function(){
+                $(".erro").hide();
+            },2000);
         }
     });
 }
@@ -82,9 +81,44 @@ function gerarCard(socios){
     });
 }
 
+function editActive(){
+    $(".tabela-dados input, .tabela-dados textarea").removeAttr("readonly").addClass("edit");
+    $(".tabela-dados button#edit-form").show();
+}
+
 function editForm(){
-    alert("CLICK");
-    $(".tabela-dados input, .tabela-dados textarea").removeAttr("readonly");
+    let cnpj = $("input#cnpj").val().replace(/\s+/g, "").replace(/\D/g, "");
+    const nome = $("input.tbl[name='nome']").val();
+    const social = $("input.tbl[name='social']").val();
+    const abertura = $("input.tbl[name='abertura']").val();
+    const situacao = $("input.tbl[name='situacao']").val();
+    const atividade = $("textarea.tbl[name='atividade']").val();
+    const endereco = $("textarea.tbl[name='endereco']").val();
+    const telefone = $("input.tbl[name='telefone']").val();
+    const email = $("input.tbl[name='email']").val();
+
+    $.ajax({
+        url: `https://brasilapi.com.br/api/cnpj/v1/${cnpj}`,
+        method: "PATCH",
+        data: {
+            nome_fantasia: nome,
+            razao_social: social,
+            data_inicio_atividade: abertura,
+            descricao_situacao_cadastral: situacao,
+            cnae_fiscal_descricao: atividade,
+            logradouro_completo: endereco,
+            ddd_telefone_1: telefone,
+            email: email
+        },
+        success: function(dados) {
+            console.log("dados enviados corretamente: ", dados);
+            alert("Dados enviados com sucesso!");
+        },
+        error: function(xhr, status, error) {
+            console.log("ocorreu um erro", error)
+            alert("Ocorreu um erro ao tentar atualizar os dados, tente novamente mais tarde.")
+        }
+    });
 }
 
 $(document).ready(function(){
